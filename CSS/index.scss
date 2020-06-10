@@ -1,0 +1,363 @@
+//format.css line 80 start
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+    padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+    list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+    margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+//kleuren
+$tekstcolor: #ffffff;
+$secundarycolor: #ffa500;
+$thirdcolor: #ffe0a8;
+$backgroundcolor: #434343;
+$navFooterColor: #000000;
+$fonts: "Montserrat", Verdana;
+$effect_time: 1.5s;
+//openingspagina foto+icons
+.main_img {
+    background-image: url("../Img/background.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 98.9vw;
+    overflow: hidden;
+    height: 100vh;
+    margin: 0;
+
+    .top_icon {
+        color: $tekstcolor;
+        font-size: 20pt;
+        float: right;
+        margin-right: 5vw;
+        margin-top: 1vh;
+    }
+    .top_icon:hover {
+        color: $secundarycolor;
+        text-decoration: underline;
+    }
+    h1 {
+        color: $tekstcolor;
+        font-family: $fonts;
+        font-size: 56pt;
+        width:98.9vw;
+        text-align: center;
+        padding-top: 30vh;
+    }
+
+    h2 {
+        color: $tekstcolor;
+        font-family: $fonts;
+        font-size: 41pt;
+        width:98.9vw;
+        text-align: center;
+        padding-top: 3vh;
+    }
+    #arrow_down {
+        width: 100%;
+        text-align: center;
+        font-size: 55pt;
+        margin-top: 12vw;
+        color: white;
+    }
+    .bounce {
+        animation: bounce $effect_time;
+        color: 000;
+    }
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        12% {
+            transform: translateY(-50px);
+        }
+        24% {
+            transform: translateY(0);
+        }
+        36% {
+            transform: translateY(-50px);
+        }
+        48% {
+            transform: translateY(0);
+        }
+        60% {
+            transform: translateY(-50px);
+        }
+        72% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+}
+//nav
+nav {
+    width: 98.9vw;
+    height: 10vh;
+    background-color: $navFooterColor;
+
+    h2 {
+        float: left;
+        text-align: center;
+        margin-top: 2.5vh;
+        color: $tekstcolor;
+        min-width: 19.78vw;
+        padding: 0;
+
+        a {
+            text-decoration: none;
+            color: $tekstcolor;
+            font-family: $fonts;
+        }
+        a:hover {
+            color: $secundarycolor;
+            text-decoration: underline;
+        }
+    }
+}
+//artikelen
+#wrapper {
+    background-color: $backgroundcolor;
+    width: 98.9vw;
+    padding-bottom: 20px;
+    padding-top: 0.5vw;
+    color: $tekstcolor;
+    font-family: $fonts;
+
+    .titel {
+        margin-left: 10vw;
+        font-size: 18pt;
+        margin-top: 0.5vw;
+        margin-bottom: 0.5vw;
+    }
+    .subtitel {
+        margin-left: 12vw;
+        font-size: 14pt;
+        margin-bottom: 0.5vw;
+    }
+    .img_artikel {
+        max-height: 60vh;
+        margin: 0 auto;
+    }
+    .tekst {
+        margin-left: 12vw;
+        max-width: 75vw;
+        text-align: justify;
+        font-size: 12pt;
+        margin-top: 0.5vw;
+        margin-bottom: 0.5vw;
+    }
+    .link {
+        margin-left: 10vw;
+        margin-top: 40px;
+        color: $thirdcolor;
+        text-decoration: none;
+        font-size: 12pt;
+    }
+    .link:hover {
+        color: $secundarycolor;
+        text-decoration: underline;
+    }
+    .streep {
+        border-bottom: 2px solid $secundarycolor;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        width: 80vw;
+        margin-left: 9.45vw;
+    }
+}
+//footer
+footer {
+    padding-top:1px;
+  }
+  #btn {
+    display: none;
+  }
+  .label {
+    //margin-top: 5px;
+    float:right;
+    background: $tekstcolor;
+    //padding: 10px;
+    transition: 0.25s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
+  .label:hover {
+    border-color: $secundarycolor;
+  }
+  .label:active {
+    background: RGBa(0, 0, 0, 0.2);
+  }
+  input:checked + .overlay {
+    opacity: 1;
+    z-index: 1;
+  }
+  .overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: RGBa(255, 255, 255, 0.3);
+    opacity: 0;
+    z-index: -1;
+    transition: 0.5s ease;
+  }
+  .popup {
+    max-height: 90%;
+    position: absolute;
+    padding: 10px;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    overflow-y: auto;
+    background: #fff;
+    color: #999;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+  }
+  .title {
+    font-size: 25px;
+    text-align: center;
+    display: block;
+  }
+  .popup input {
+    display: block;
+    margin: 20px 0;
+    width: 50%;
+    padding: 5px 0;
+    transition: 0.25s ease;
+    color: #333;
+    border: none;
+    border-bottom: 1px solid transparent;
+    font-size: 15px;
+    outline: none;
+  }
+  .popup input:focus {
+    width: 90%;
+    border-bottom: 1px #aaa solid;
+  }
+  .login {
+    margin: auto;
+    display: block;
+    width: 50px;
+    background: #eee;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    text-align: center;
+  }
+  .login:hover {
+    background: #e0e0e0;
+  }
+  .popup p {
+    text-align: center;
+    font-size: 20px;
+    margin: 30px 0;
+  }
+  .info {
+    width: 70%;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+  }
+  .username {
+    color: #005ddd;
+    text-decoration: none;
+  }
+  .username:hover {
+    color: #00419a;
+    text-decoration: underline;
+  }
+  .info-text {
+    font-size: 13px;
+  }
+  #real {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+  }
+  @keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+  }
+  
