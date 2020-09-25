@@ -1,3 +1,14 @@
+$tekstcolor: rgba(255, 255, 255, 0.8);
+$titletekst: rgba(255, 255, 255, 1);
+$secundarycolor: #f8b945;
+$thirdcolor: #bbbbbb;
+$backgroundcolor: #434343;
+$navFooterColor: #000000;
+$fonts: "Montserrat", Verdana;
+$effect_time: 2s infinite;
+$pageWidth: 99.12vw;
+$backgroundImg: url("../Img/background.webp");
+$backgroundImg2: url("../Img/background2.webp");
 //format.css line 80 start
 *,
 *::before,
@@ -25,13 +36,6 @@ blockquote,
 dl,
 dd {
     margin: 0;
-}
-
-body {
-    min-height: 100vh;
-    scroll-behavior: smooth;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
 }
 
 ul[class],
@@ -67,58 +71,56 @@ select {
         scroll-behavior: auto !important;
     }
 }
-
 //kleuren
-//$tekstcolor: #ffffff;
-$tekstcolor: rgba(255,255,255,0.8);
-$titletekst: rgba(255,255,255,1);
-$secundarycolor: #f8b945;
-$thirdcolor: #bbbbbb;
-$backgroundcolor: #434343;
-$navFooterColor: #000000;
-$fonts: "Montserrat", Verdana;
-$effect_time: 2s infinite;
-$pageWidth:99.12vw;
 //openingspagina foto+icons
+body {
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    width: $pageWidth;
+}
 .main_img {
-    background-image: url("../Img/background.webp");
+    background-image: $backgroundImg;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     width: $pageWidth;
-    overflow: hidden;
     height: 100vh;
     margin: 0;
-
     .top_icon {
         color: $titletekst;
         font-size: 20pt;
     }
-        #icon1 {
-            position: fixed;
-            top:1vh;
-            left:97vw;
-        }
-        #icon2{
-            position: fixed;
-            top:7vh;
-            left:97vw;
-        }
-        #icon3{
-            position: fixed;
-            top:13vh;
-            left:97vw;
-        }
-        .top_icon:hover {
-            color: $secundarycolor;
-            text-decoration: underline;
-        }
-        
+    #icon1 {
+        position: fixed;
+        top: 1vh;
+        left: 97vw;
+        z-index: 3;
+    }
+    #icon2 {
+        position: fixed;
+        top: 7vh;
+        left: 97vw;
+        z-index: 3;
+    }
+    #icon3 {
+        position: fixed;
+        top: 13vh;
+        left: 97vw;
+        z-index: 3;
+    }
+    .top_icon:hover {
+        color: $secundarycolor;
+        text-decoration: underline;
+        transition: 0.25s ease;
+    }
+
     h1 {
         color: $titletekst;
         font-family: $fonts;
         font-size: 56pt;
-        width:$pageWidth;
+        width: $pageWidth;
         text-align: center;
         padding-top: 30vh;
     }
@@ -127,23 +129,23 @@ $pageWidth:99.12vw;
         color: $titletekst;
         font-family: $fonts;
         font-size: 41pt;
-        width:$pageWidth;
+        width: $pageWidth;
         text-align: center;
         padding-top: 3vh;
     }
     .scroll-downs {
         position: absolute;
-        right: 5vw;
+        right: 3.2vw;
         bottom: 5vh;
         margin: auto;
-        width :34px;
+        width: 34px;
         height: 55px;
     }
     .mousey {
         width: 3px;
         padding: 10px 15px;
         height: 35px;
-        border: 2px solid $tekstcolor;
+        border: 3.5px solid $titletekst;
         border-radius: 25px;
         opacity: 0.75;
         box-sizing: content-box;
@@ -155,13 +157,21 @@ $pageWidth:99.12vw;
         background-color: $secundarycolor;
         animation-name: scroll;
         animation-duration: 2.2s;
-        animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+        animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
         animation-iteration-count: infinite;
     }
     @keyframes scroll {
-        0% { opacity: 0; }
-        10% { transform: translateY(0); opacity: 1; }
-        100% { transform: translateY(15px); opacity: 0;}
+        0% {
+            opacity: 0;
+        }
+        10% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(15px);
+            opacity: 0;
+        }
     }
     // source:https://codepen.io/oRlex/pen/XWmrEyM
 }
@@ -170,43 +180,58 @@ nav {
     width: $pageWidth;
     height: 10vh;
     background-color: $navFooterColor;
+    z-index: 3;
 
     h2 {
         float: left;
         text-align: center;
-        margin-top: 2.5vh;
+        margin-top: 3vh;
         color: $tekstcolor;
-        min-width: 19.78vw;
-        padding: 0;
+        min-width: 19.824vw;
 
         a {
             text-decoration: none;
             color: $tekstcolor;
             font-family: $fonts;
+            font-size: 18pt;
         }
         a:hover {
             color: $secundarycolor;
             text-decoration: underline;
+            transition: 0.25s ease;
         }
     }
 }
 //artikelen
+#bg {
+    background-image: $backgroundImg2;
+    background-repeat: no-repeat;
+    background-position: center;
+    //background-size: cover;
+    filter: blur(8px);
+    height: 125vh;
+}
 #wrapper {
-    background-color: $backgroundcolor;
-    width: $pageWidth;
     padding-bottom: 20px;
-    padding-top: 0.5vw;
+    margin-top: 4.2vw;
     color: $tekstcolor;
     font-family: $fonts;
+    width: $pageWidth;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0vw;
+    top: 50vw;
+    transform: translate(0vw, 0vh);
+    z-index: 2;
 
     .titel {
-        margin-left: 10vw;
+        margin-left: 1vw;
         font-size: 18pt;
         margin-top: 0.5vw;
         margin-bottom: 0.5vw;
     }
     .subtitel {
-        margin-left:12vw;
+        margin-left: 12vw;
         font-size: 14pt;
         margin-bottom: 0.5vw;
     }
@@ -215,7 +240,7 @@ nav {
         margin: 0 auto;
     }
     .tekst {
-        margin-left:12vw;
+        margin-left: 12vw;
         max-width: 75vw;
         text-align: justify;
         font-size: 12pt;
@@ -232,135 +257,137 @@ nav {
     .link:hover {
         color: $secundarycolor;
         text-decoration: underline;
+        transition: 0.25s ease;
     }
     .streep {
         border-bottom: 2px solid $secundarycolor;
         margin-top: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         width: 80vw;
         margin-left: 9.45vw;
     }
 }
 //footer
 footer {
-    padding-top:1px;
-  }
-  #btn {
-    display: none;
-  }
-  .label {
-    //margin-top: 5px;
-    float:right;
-    background: $tekstcolor;
-    //padding: 10px;
-    transition: 0.25s ease;
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  .label:hover {
-    border-color: $secundarycolor;
-  }
-  .label:active {
-    background: RGBa(0, 0, 0, 0.2);
-  }
-  input:checked + .overlay {
-    opacity: 1;
-    z-index: 1;
-  }
-  .overlay {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: RGBa(255, 255, 255, 0.3);
-    opacity: 0;
-    z-index: -1;
-    transition: 0.5s ease;
-  }
-  .popup {
-    max-height: 90%;
+    padding-top: 1px;
     position: absolute;
-    padding: 10px;
-    left: 50%;
-    top: 50%;
-    width: 300px;
-    overflow-y: auto;
-    background: #fff;
-    color: #999;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
-  }
-  .title {
-    font-size: 25px;
-    text-align: center;
-    display: block;
-  }
-  .popup input {
-    display: block;
-    margin: 20px 0;
-    width: 50%;
-    padding: 5px 0;
-    transition: 0.25s ease;
-    color: #333;
-    border: none;
-    border-bottom: 1px solid transparent;
-    font-size: 15px;
-    outline: none;
-  }
-  .popup input:focus {
-    width: 90%;
-    border-bottom: 1px #aaa solid;
-  }
-  .login {
-    margin: auto;
-    display: block;
-    width: 50px;
-    background: #eee;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.25s ease;
-    text-align: center;
-  }
-  .login:hover {
-    background: #e0e0e0;
-  }
-  .popup p {
-    text-align: center;
-    font-size: 20px;
-    margin: 30px 0;
-  }
-  .info {
-    width: 70%;
-    box-sizing: border-box;
-    height: 100%;
-    padding: 10px;
-  }
-  .username {
-    color: #005ddd;
-    text-decoration: none;
-  }
-  .username:hover {
-    color: #00419a;
-    text-decoration: underline;
-  }
-  .info-text {
-    font-size: 13px;
-  }
-  #real {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    z-index: 3;
-  }
-  @keyframes fadein {
-    from {
-        opacity: 0;
+    bottom:1vh;
+    left:40vw;
+    z-index: 13;
+    #btn {
+        display: none;
     }
-    to {
+    .label {
+        background: $backgroundcolor;
+        padding:10px;
+        border-radius: 25px;
+    }
+    .label:hover {
+        border-color: 2px solid $secundarycolor;
+        transition: 0.25s ease;
+        color: $secundarycolor;
+
+    }
+    .label:active {
+        background: RGBa(0, 0, 0, 0.2);
+    }
+    input:checked + .overlay {
         opacity: 1;
+        z-index: 3;
     }
-  }
-  
+    .overlay {
+        position: fixed;
+        width: $pageWidth;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: RGBa(255, 255, 255, 0.3);
+        opacity: 0;
+        z-index: -3;
+        transition: 0.5s ease;
+    }
+    .popup {
+        max-height: 90%;
+        position: absolute;
+        padding: 10px;
+        left: 50%;
+        top: 50%;
+        width: 300px;
+        overflow-y: auto;
+        background: #fff;
+        color: #999;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+    }
+    .title {
+        font-size: 25px;
+        text-align: center;
+        display: block;
+    }
+    .popup input {
+        display: block;
+        margin: 20px 0;
+        width: 50%;
+        padding: 5px 0;
+        transition: 0.25s ease;
+        color: #333;
+        border: none;
+        border-bottom: 1px solid transparent;
+        font-size: 15px;
+        outline: none;
+    }
+    .popup input:focus {
+        width: 90%;
+        border-bottom: 1px #aaa solid;
+    }
+    .login {
+        margin: auto;
+        display: block;
+        width: 50px;
+        background: #eee;
+        padding: 10px;
+        cursor: pointer;
+        transition: 0.25s ease;
+        text-align: center;
+    }
+    .login:hover {
+        background: #e0e0e0;
+    }
+    .popup p {
+        text-align: center;
+        font-size: 20px;
+        margin: 30px 0;
+    }
+    .info {
+        width: 70%;
+        box-sizing: border-box;
+        height: 100%;
+        padding: 10px;
+    }
+    .username {
+        color: #005ddd;
+        text-decoration: none;
+    }
+    .username:hover {
+        color: #00419a;
+        text-decoration: underline;
+    }
+    .info-text {
+        font-size: 13px;
+    }
+    #real {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 3;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}

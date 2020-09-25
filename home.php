@@ -30,24 +30,24 @@ $result = mysqli_query($mysqli, "SELECT * FROM feed ORDER BY ID DESC");
             </div>
         </div>
     </div>
-    <?php
-        include_once("./Includes/nav.php");
-    ?>
-    <div id="wrapper">
         <?php
-        while ($row = mysqli_fetch_array($result)) {
-            echo "<h2 class='titel'>" . $row['Titel'] . "</h2>";
-            echo "<h3 class='subtitel'>" . $row['Subtitel'] . "<h3>";
-            echo "<img class='img_artikel' src='" . $row['Afbeelding'] . "' alt='Afbeelding bij artikel " . $row['Titel'] . "'>";
-            echo "<p class='tekst'>" . $row['Tekst'] . "<p>";
-            echo "<a class ='link' href='" . $row['Link'] . "'>" . $row['Link'] . "</a>";
-            echo "<div class='streep'></div>";
-        }
+            include_once("./Includes/nav.php");
         ?>
-    </div>
-    <?php
-        include_once("./Includes/footer.php");
-    ?>
+        <div id="bg"></div>
+        <div id="wrapper">
+            <?php
+            while ($row = mysqli_fetch_array($result)) {
+                echo "<h2 class='titel'>" . $row['Titel'] . "</h2>";
+                echo "<h3 class='subtitel'>" . $row['Subtitel'] . "<h3>";
+                echo "<img class='img_artikel' loading='lazy' src='" . $row['Afbeelding'] . "' alt='Afbeelding bij artikel " . $row['Titel'] . "'>";
+                echo "<p class='tekst'>" . $row['Tekst'] . "<p>";
+                echo "<a class ='link' href='" . $row['Link'] . "'>" . $row['Link'] . "</a>";
+                echo "<div class='streep'></div>";
+            }
+            include_once("./Includes/footer.php");
+        ?>
 </body>
+<script> 
 
+</script>
 </html>
