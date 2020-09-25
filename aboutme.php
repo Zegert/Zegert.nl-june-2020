@@ -12,12 +12,16 @@
 
 <body>
     <div class="main_img">
-        <a class="top_icon" href="https://www.facebook.com/profile.php?id=100006312939679"><i class="fab fa-facebook-f"></i></a>
-        <a class="top_icon" href="https://www.linkedin.com/in/zegert-boele-663713177/"><i class="fab fa-linkedin-in"></i></a>
-        <a class="top_icon" href="https://www.instagram.com/zegert_/"><i class="fab fa-instagram"></i></a>
+        <a class="top_icon" id="icon1" href="https://www.facebook.com/profile.php?id=100006312939679"><i class="fab fa-facebook-f"></i></a>
+        <a class="top_icon" id="icon2" href="https://www.linkedin.com/in/zegert-boele-663713177/"><i class="fab fa-linkedin-in"></i></a>
+        <a class="top_icon" id="icon3" href="https://www.instagram.com/zegert_/"><i class="fab fa-instagram"></i></a>
         <h1>Zegert Boele</h1>
         <h2>Over mij</h2>
-        <p id="arrow_down"><i class="fas fa-angle-down bounce"></i></p>
+        <div class="scroll-downs">
+            <div class="mousey">
+                <div class="scroller"></div>
+            </div>
+        </div>
     </div>
     <?php
         include_once("./Includes/nav.php");

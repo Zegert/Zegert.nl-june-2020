@@ -5,13 +5,11 @@
     box-sizing: border-box;
 }
 
-/* Remove default padding */
 ul[class],
 ol[class] {
     padding: 0;
 }
 
-/* Remove default margin */
 body,
 h1,
 h2,
@@ -29,7 +27,6 @@ dd {
     margin: 0;
 }
 
-/* Set core body defaults */
 body {
     min-height: 100vh;
     scroll-behavior: smooth;
@@ -37,29 +34,24 @@ body {
     line-height: 1.5;
 }
 
-/* Remove list styles on ul, ol elements with a class attribute */
 ul[class],
 ol[class] {
     list-style: none;
 }
 
-/* A elements that don't have a class get default styles */
 a:not([class]) {
     text-decoration-skip-ink: auto;
 }
 
-/* Make images easier to work with */
 img {
     max-width: 100%;
     display: block;
 }
 
-/* Natural flow and rhythm in articles by default */
 article > * + * {
     margin-top: 1em;
 }
 
-/* Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
@@ -67,7 +59,6 @@ select {
     font: inherit;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -78,93 +69,105 @@ select {
 }
 
 //kleuren
-$tekstcolor: #ffffff;
-$secundarycolor: #ffa500;
-$thirdcolor: #ffe0a8;
+//$tekstcolor: #ffffff;
+$tekstcolor: rgba(255,255,255,0.8);
+$titletekst: rgba(255,255,255,1);
+$secundarycolor: #f8b945;
+$thirdcolor: #bbbbbb;
 $backgroundcolor: #434343;
 $navFooterColor: #000000;
 $fonts: "Montserrat", Verdana;
-$effect_time: 1.5s;
+$effect_time: 2s infinite;
+$pageWidth:99.12vw;
 //openingspagina foto+icons
 .main_img {
     background-image: url("../Img/background.webp");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    width: 98.9vw;
+    width: $pageWidth;
     overflow: hidden;
     height: 100vh;
     margin: 0;
 
     .top_icon {
-        color: $tekstcolor;
+        color: $titletekst;
         font-size: 20pt;
-        float: right;
-        margin-right: 5vw;
-        margin-top: 1vh;
     }
-    .top_icon:hover {
-        color: $secundarycolor;
-        text-decoration: underline;
-    }
+        #icon1 {
+            position: fixed;
+            top:1vh;
+            left:97vw;
+        }
+        #icon2{
+            position: fixed;
+            top:7vh;
+            left:97vw;
+        }
+        #icon3{
+            position: fixed;
+            top:13vh;
+            left:97vw;
+        }
+        .top_icon:hover {
+            color: $secundarycolor;
+            text-decoration: underline;
+        }
+        
     h1 {
-        color: $tekstcolor;
+        color: $titletekst;
         font-family: $fonts;
         font-size: 56pt;
-        width:98.9vw;
+        width:$pageWidth;
         text-align: center;
         padding-top: 30vh;
     }
 
     h2 {
-        color: $tekstcolor;
+        color: $titletekst;
         font-family: $fonts;
         font-size: 41pt;
-        width:98.9vw;
+        width:$pageWidth;
         text-align: center;
         padding-top: 3vh;
     }
-    #arrow_down {
-        width: 100%;
-        text-align: center;
-        font-size: 55pt;
-        margin-top: 12vw;
-        color: white;
+    .scroll-downs {
+        position: absolute;
+        right: 5vw;
+        bottom: 5vh;
+        margin: auto;
+        width :34px;
+        height: 55px;
     }
-    .bounce {
-        animation: bounce $effect_time;
-        color: 000;
+    .mousey {
+        width: 3px;
+        padding: 10px 15px;
+        height: 35px;
+        border: 2px solid $tekstcolor;
+        border-radius: 25px;
+        opacity: 0.75;
+        box-sizing: content-box;
     }
-    @keyframes bounce {
-        0% {
-            transform: translateY(0);
-        }
-        12% {
-            transform: translateY(-50px);
-        }
-        24% {
-            transform: translateY(0);
-        }
-        36% {
-            transform: translateY(-50px);
-        }
-        48% {
-            transform: translateY(0);
-        }
-        60% {
-            transform: translateY(-50px);
-        }
-        72% {
-            transform: translateY(0);
-        }
-        100% {
-            transform: translateY(0);
-        }
+    .scroller {
+        width: 3px;
+        height: 10px;
+        border-radius: 25%;
+        background-color: $secundarycolor;
+        animation-name: scroll;
+        animation-duration: 2.2s;
+        animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+        animation-iteration-count: infinite;
     }
+    @keyframes scroll {
+        0% { opacity: 0; }
+        10% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(15px); opacity: 0;}
+    }
+    // source:https://codepen.io/oRlex/pen/XWmrEyM
 }
 //nav
 nav {
-    width: 98.9vw;
+    width: $pageWidth;
     height: 10vh;
     background-color: $navFooterColor;
 
@@ -190,7 +193,7 @@ nav {
 //artikelen
 #wrapper {
     background-color: $backgroundcolor;
-    width: 98.9vw;
+    width: $pageWidth;
     padding-bottom: 20px;
     padding-top: 0.5vw;
     color: $tekstcolor;
@@ -203,7 +206,7 @@ nav {
         margin-bottom: 0.5vw;
     }
     .subtitel {
-        margin-left: 12vw;
+        margin-left:12vw;
         font-size: 14pt;
         margin-bottom: 0.5vw;
     }
@@ -212,7 +215,7 @@ nav {
         margin: 0 auto;
     }
     .tekst {
-        margin-left: 12vw;
+        margin-left:12vw;
         max-width: 75vw;
         text-align: justify;
         font-size: 12pt;

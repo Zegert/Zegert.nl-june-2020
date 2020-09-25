@@ -78,40 +78,54 @@ select {
 }
 
 //kleuren
-$tekstcolor: #ffffff;
-$secundarycolor: #ffa500;
-$thirdcolor: #ffe0a8;
+$tekstcolor: rgba(255,255,255,0.8);
+$titletekst: rgba(255,255,255,1);
+$secundarycolor: #f8b945;
+$thirdcolor: #bbbbbb;
 $backgroundcolor: #434343;
 $navFooterColor: #000000;
 $fonts: "Montserrat", Verdana;
-$effect_time: 1.5s;
+$effect_time: 2s infinite;
+$pageWidth: 99.12vw;
 //openingspagina foto+icons
 .main_img {
   background-image: url("../Img/background.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  width: 98.9vw;
+  width: $pageWidth;
   overflow: hidden;
   height: 100vh;
   margin: 0;
 
   .top_icon {
-    color: $tekstcolor;
+    color: $titletekst;
     font-size: 20pt;
-    float: right;
-    margin-right: 5vw;
-    margin-top: 1vh;
   }
-  .top_icon:hover {
-    color: $secundarycolor;
-    text-decoration: underline;
-  }
+    #icon1 {
+        position: fixed;
+        top:1vh;
+        left:97vw;
+    }
+    #icon2{
+        position: fixed;
+        top:7vh;
+        left:97vw;
+    }
+    #icon3{
+        position: fixed;
+        top:13vh;
+        left:97vw;
+    }
+    .top_icon:hover {
+        color: $secundarycolor;
+        text-decoration: underline;
+    }
   h1 {
     color: $tekstcolor;
     font-family: $fonts;
     font-size: 56pt;
-    width: 98.9vw;
+    width: $pageWidth;
     text-align: center;
     padding-top: 30vh;
   }
@@ -121,51 +135,47 @@ $effect_time: 1.5s;
     font-family: $fonts;
     font-size: 41pt;
     padding-top: 3vh;
-    width: 98.9vw;
+    width: $pageWidth;
     text-align: center;
   }
-  #arrow_down {
-    width: 100%;
-    text-align: center;
-    font-size: 55pt;
-    margin-top: 12vw;
-    color: white;
-  }
-  .bounce {
-    animation: bounce $effect_time;
-    color: 000;
-  }
-  @keyframes bounce {
-    0% {
-      transform: translateY(0);
-    }
-    12% {
-      transform: translateY(-50px);
-    }
-    24% {
-      transform: translateY(0);
-    }
-    36% {
-      transform: translateY(-50px);
-    }
-    48% {
-      transform: translateY(0);
-    }
-    60% {
-      transform: translateY(-50px);
-    }
-    72% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
+  .scroll-downs {
+    position: absolute;
+    right: 5vw;
+    bottom: 5vh;
+    margin: auto;
+    width :34px;
+    height: 55px;
+}
+.mousey {
+    width: 3px;
+    padding: 10px 15px;
+    height: 35px;
+    border: 2px solid $tekstcolor;
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+.scroller {
+    width: 3px;
+    height: 10px;
+    border-radius: 25%;
+    background-color: $secundarycolor;
+    animation-name: scroll;
+    animation-duration: 2.2s;
+    animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+    animation-iteration-count: infinite;
+}
+@keyframes scroll {
+    0% { opacity: 0; }
+    10% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(15px); opacity: 0;}
+}
+// source:https://codepen.io/oRlex/pen/XWmrEyM
 }
 
 //nav
 nav {
-  width: 98.9vw;
+  width: $pageWidth;
   height: 10vh;
   background-color: $navFooterColor;
 
@@ -193,7 +203,7 @@ main {
   background-color: $backgroundcolor;
   color:$tekstcolor;
   font-family: $fonts;
-  width: 98.9vw;
+  width: $pageWidth;
   padding-top:0.5vw;
 
   h1 {
